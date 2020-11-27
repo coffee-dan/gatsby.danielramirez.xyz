@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Header() {
 	return (
-		<>
+		<header>
 			<div className="logo">
-				<img alt="" />
+				<img src={'/img/logo.png'} alt="Me" />
 			</div>
 
 			<button className="nav-toggle" aria-label="toggle navigation">
@@ -34,6 +34,6 @@ export default function Header() {
 					</li>
 				</ul>
 			</nav>
-		</>
+		</header>
 	)
 }
