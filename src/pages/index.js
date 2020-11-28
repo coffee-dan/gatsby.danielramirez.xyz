@@ -5,7 +5,7 @@ import Footer from '../components/footer'
 
 export default function Home() {
 	return (
-		<>
+		<body>
 			<Header />
 
 			{/* Introduction section */}
@@ -16,7 +16,7 @@ export default function Home() {
 				<p className="section__subtitle section__subtitle--intro">
 					front-end dev
 				</p>
-				<img alt="" />
+				<img src={'/img/me-1.jpg'} alt="" className="intro__img" />
 			</section>
 
 			{/* My Services section */}
@@ -89,7 +89,7 @@ export default function Home() {
 					</p>
 				</div>
 
-				<img alt="" class="about-me__img" />
+				<img src="/img/me-2.jpeg" alt="" class="about-me__img" />
 			</section>
 
 			{/* My Work */}
@@ -101,20 +101,32 @@ export default function Home() {
 
 				<div class="portfolio">
 					<a href="https://google.com" class="portfolio__item">
-						<img alt="" class="portfolio__img" />
+						<img
+							src="/img/project-1.jpeg"
+							alt=""
+							class="portfolio__img"
+						/>
 					</a>
 
 					<a href="https://google.com" class="portfolio__item">
-						<img alt="" class="portfolio__img" />
+						<img
+							src="/img/project-2.jpg"
+							alt=""
+							class="portfolio__img"
+						/>
 					</a>
 
 					<a href="https://google.com" class="portfolio__item">
-						<img alt="" class="portfolio__img" />
+						<img
+							src="/img/project-3.jpg"
+							alt=""
+							class="portfolio__img"
+						/>
 					</a>
 				</div>
 			</section>
 
 			<Footer />
-		</>
+		</body>
 	)
 }

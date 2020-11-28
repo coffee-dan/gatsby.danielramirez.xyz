@@ -5,6 +5,7 @@ import React from 'react'
 export default function About() {
 	return (
 		<>
+			<Header />
 			<section class="intro">
 				<h1 class="section__title section__title--intro">
 					The title <strong>of my project</strong>
@@ -33,6 +34,7 @@ export default function About() {
 					voluptate, magnam ipsum eius earum?
 				</p>
 			</div>
+			<Footer />
 		</>
 	)
 }
