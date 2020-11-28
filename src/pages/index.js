@@ -100,15 +100,15 @@ export default function Home() {
 				</p>
 
 				<div class="portfolio">
-					<a href="#" class="portfolio__item">
+					<a href="https://google.com" class="portfolio__item">
 						<img alt="" class="portfolio__img" />
 					</a>
 
-					<a href="#" class="portfolio__item">
+					<a href="https://google.com" class="portfolio__item">
 						<img alt="" class="portfolio__img" />
 					</a>
 
-					<a href="#" class="portfolio__item">
+					<a href="https://google.com" class="portfolio__item">
 						<img alt="" class="portfolio__img" />
 					</a>
 				</div>
