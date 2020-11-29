@@ -398,6 +398,10 @@ header {
     padding: .5em;
 }
 
+.social-list__icon {
+    color: var(--clr-accent);
+}
+
 /* portfolio item individual */
 
 .portfolio-item-individual {

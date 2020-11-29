@@ -1,4 +1,5 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Footer() {
 	return (
@@ -21,7 +22,11 @@ export default function Footer() {
 				</li>
 				<li className="social-list__item">
 					<a className="social-list__link" href="https://github.com">
-						<i className="fab"></i> {/* github icon */}
+						<FontAwesomeIcon
+							icon={['fab', 'github']}
+							className="social-list__icon"
+							color="white"
+						/>
 					</a>
 				</li>
 			</ul>
