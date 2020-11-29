@@ -9,6 +9,9 @@ module.exports = {
 		title: `Daniel Ramirez`,
 	},
 	plugins: [
+		`gatsby-plugin-sharp`,
+		`gatsby-transformer-sharp`,
+		`gatsby-transformer-remark`,
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
@@ -16,6 +19,5 @@ module.exports = {
 				path: `${__dirname}/src/`,
 			},
 		},
-		`gatsby-transformer-remark`,
 	],
 }

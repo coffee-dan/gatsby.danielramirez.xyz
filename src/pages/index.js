@@ -1,9 +1,10 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 // import Layout from '../components/layout'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
-export default function Home() {
+export default function Home({ data }) {
 	return (
 		<body>
 			<Header />
@@ -20,12 +21,12 @@ export default function Home() {
 			</section>
 
 			{/* My Services section */}
-			<section class="my-services" id="services">
-				<h2 class="section__title section__title--services">
+			<section className="my-services" id="services">
+				<h2 className="section__title section__title--services">
 					What I do
 				</h2>
-				<div class="services">
-					<div class="service">
+				<div className="services">
+					<div className="service">
 						<h3>Design + Development</h3>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -36,7 +37,7 @@ export default function Home() {
 						</p>
 					</div>
 
-					<div class="service">
+					<div className="service">
 						<h3>E-Commerce</h3>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -47,7 +48,7 @@ export default function Home() {
 						</p>
 					</div>
 
-					<div class="service">
+					<div className="service">
 						<h3>WordPress</h3>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -59,20 +60,22 @@ export default function Home() {
 					</div>
 				</div>
 
-				<a href="#work" class="btn">
+				<a href="#work" className="btn">
 					My Work
 				</a>
 			</section>
 
 			{/* About Me */}
-			<section class="about-me" id="about">
-				<h2 class="section__title section__title--about">Who I am</h2>
+			<section className="about-me" id="about">
+				<h2 className="section__title section__title--about">
+					Who I am
+				</h2>
 
-				<p class="section__subtitle section__subtitle--about">
-					Designer & developer based out of NYC
+				<p className="section__subtitle section__subtitle--about">
+					Designer & developer based out of DFW
 				</p>
 
-				<div class="about-me__body">
+				<div className="about-me__body">
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 						sed do eiusmod tempor incididunt ut labore et dolore
@@ -89,40 +92,31 @@ export default function Home() {
 					</p>
 				</div>
 
-				<img src="/img/me-2.jpeg" alt="" class="about-me__img" />
+				<img src="/img/me-2.jpeg" alt="" className="about-me__img" />
 			</section>
 
 			{/* My Work */}
-			<section class="my-work" id="work">
-				<h2 class="section__title section__title--work">My work</h2>
-				<p class="section__subtitle section__subtitle--work">
+			<section className="my-work" id="work">
+				<h2 className="section__title section__title--work">My work</h2>
+				<p className="section__subtitle section__subtitle--work">
 					A selection of my range of work
 				</p>
 
-				<div class="portfolio">
-					<a href="https://google.com" class="portfolio__item">
-						<img
-							src="/img/project-1.jpeg"
+				<div className="portfolio">
+					{data.allMarkdownRemark.edges.map(({ node }) => (
+						<a
+							key={node.id}
+							href={node.fields.slug}
 							alt=""
-							class="portfolio__img"
-						/>
-					</a>
-
-					<a href="https://google.com" class="portfolio__item">
-						<img
-							src="/img/project-2.jpg"
-							alt=""
-							class="portfolio__img"
-						/>
-					</a>
-
-					<a href="https://google.com" class="portfolio__item">
-						<img
-							src="/img/project-3.jpg"
-							alt=""
-							class="portfolio__img"
-						/>
-					</a>
+							className="portfolio__item"
+						>
+							<img
+								src={node.frontmatter.featuredImage}
+								alt=""
+								className="portfolio__img"
+							/>
+						</a>
+					))}
 				</div>
 			</section>
 
@@ -130,3 +124,25 @@ export default function Home() {
 		</body>
 	)
 }
+
+export const query = graphql`
+	query {
+		allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+			totalCount
+			edges {
+				node {
+					id
+					frontmatter {
+						title
+						date(formatString: "DD MMMM, YYYY")
+						featuredImage
+					}
+					fields {
+						slug
+					}
+					excerpt
+				}
+			}
+		}
+	}
+`
