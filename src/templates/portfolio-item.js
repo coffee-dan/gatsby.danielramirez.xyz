@@ -14,10 +14,10 @@ export default function BlogPost({ data }) {
 
 			<section className="intro">
 				<h1 className="section__title section__title--intro">
-					{post.frontmatter.title}
+					<strong>{post.frontmatter.title}</strong>
 				</h1>
-				<p className="section__subtitle section__title--intro">
-					Insert subtitle
+				<p className="section__subtitle section__subtitle--intro">
+					{post.frontmatter.subtitle}
 				</p>
 				<img
 					src={post.frontmatter.featuredImage}
@@ -41,6 +41,7 @@ export const query = graphql`
 			html
 			frontmatter {
 				title
+				subtitle
 				featuredImage
 			}
 		}

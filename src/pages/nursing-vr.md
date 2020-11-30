@@ -1,7 +1,13 @@
 ---
 title: "Nursing VR Simulation"
+subtitle: "UTA Capstone Project"
 date: "2019-09-14"
-featuredImage: "/img/project-3.jpg"
+featuredImage: "/img/nursing-vr.jpg"
 ---
 
-VR nursing simulation of end of life care for hospice patient. Part of capstone program at University of Texas at Arlington.
+VR simulation that aims to simulate end of life care. Part of capstone program at University of Texas at Arlington. On going project with mid-sized codebase. Worked in a team of five students including myself.
+
+<a href="https://utavirtualrealitysimulation.site.live/">Test</a>
+
+Utilized: Unity, SteamVR, HTC Vive
+Written in: C#
