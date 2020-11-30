@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-export default function Header({ buttons }) {
+export default function Header() {
 	return (
 		<header>
 			<Link to={`/`} className="logo">
-				<img src={'/img/logo.png'} alt="Me" />
+				home
 			</Link>
 		</header>
 	)

@@ -7,7 +7,8 @@ featuredImage: "/img/nursing-vr.jpg"
 
 VR simulation that aims to simulate end of life care. Part of capstone program at University of Texas at Arlington. On going project with mid-sized codebase. Worked in a team of five students including myself.
 
-<a href="https://utavirtualrealitysimulation.site.live/">Test</a>
+[Info Site](https://utavirtualrealitysimulation.site.live/)
 
 Utilized: Unity, SteamVR, HTC Vive
+
 Written in: C#

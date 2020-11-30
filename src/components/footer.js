@@ -1,4 +1,5 @@
 import React from 'react'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Footer() {
@@ -6,27 +7,16 @@ export default function Footer() {
 		<div className="footer">
 			<ul className="social-list">
 				<li className="social-list__item">
-					<a className="social-list__link" href="https://github.com">
-						<i className="fab"></i> {/* codepen icon */}
+					<a
+						className="social-list__link"
+						href="https://github.com/coffee-dan"
+					>
+						<FontAwesomeIcon icon={faGithub} />
 					</a>
 				</li>
 				<li className="social-list__item">
-					<a className="social-list__link" href="https://github.com">
-						<i className="fab"></i> {/* dribble icon */}
-					</a>
-				</li>
-				<li className="social-list__item">
-					<a className="social-list__link" href="https://github.com">
-						<i className="fab"></i> {/* twitter icon */}
-					</a>
-				</li>
-				<li className="social-list__item">
-					<a className="social-list__link" href="https://github.com">
-						<FontAwesomeIcon
-							icon={['fab', 'github']}
-							className="social-list__icon"
-							color="white"
-						/>
+					<a className="social-list__link" href="404">
+						<FontAwesomeIcon icon={faLinkedin} />
 					</a>
 				</li>
 			</ul>
