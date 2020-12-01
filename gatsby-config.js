@@ -10,6 +10,7 @@ module.exports = {
 	},
 	plugins: [
 		`gatsby-plugin-sharp`,
+		`gatsby-plugin-fontawesome-css`,
 		`gatsby-transformer-sharp`,
 		`gatsby-transformer-remark`,
 		{
