@@ -27,7 +27,7 @@ export default function BlogPost({ data }) {
 			</section>
 
 			<div className="portfolio-item-individual">
-				<p dangerouslySetInnerHTML={{ __html: post.html }}></p>
+				<div dangerouslySetInnerHTML={{ __html: post.html }}></div>
 			</div>
 
 			<Footer />
