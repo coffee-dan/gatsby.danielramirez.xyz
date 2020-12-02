@@ -1,0 +1,6 @@
+# Netlify config file, that manages redirects
+/home /
+/github https://github.com/coffee-dan
+# not created yet
+/resume /404
+/linkedin /404
