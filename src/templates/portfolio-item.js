@@ -4,12 +4,17 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import SEO from '../components/seo'
 
 export default function BlogPost({ data }) {
 	const post = data.markdownRemark
 
 	return (
 		<>
+			<SEO
+				title={post.frontmatter.title}
+				description={post.frontmatter.description || post.excerpt}
+			/>
 			<Header />
 
 			<section className="intro">

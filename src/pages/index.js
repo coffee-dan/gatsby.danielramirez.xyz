@@ -2,10 +2,12 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import SEO from '../components/seo'
 
 export default function Home({ data }) {
 	return (
 		<body>
+			<SEO title="Home" />
 			<Header />
 
 			{/* Introduction section */}

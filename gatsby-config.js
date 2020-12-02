@@ -6,7 +6,10 @@
 
 module.exports = {
 	siteMetadata: {
-		title: `Daniel Ramirez`,
+		title: `Daniel Ramirez Portfolio`,
+		author: `Daniel Ramirez`,
+		description: `Information about Daniel Ramirez.`,
+		url: `https://danielramirez.xyz`,
 	},
 	plugins: [
 		`gatsby-plugin-sharp`,
