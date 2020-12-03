@@ -1,3 +1,4 @@
+// Main page
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
@@ -6,6 +7,18 @@ import Footer from '../components/footer'
 import SEO from '../components/seo'
 
 export default function Home({ data }) {
+	// Grab array of portfolio images to transform into
+	// dictionary that is referred to when creating portfolio display section
+	const portfolioImagesArray = data.portfolioImages.edges
+	let pImgs = portfolioImagesArray.reduce(
+		(a, { node }) => ({
+			...a,
+			[node.base]: node.childImageSharp,
+		}),
+
+		{}
+	)
+
 	return (
 		<body>
 			<SEO title="Home" />
@@ -50,10 +63,13 @@ export default function Home({ data }) {
 							href={node.fields.slug}
 							className="portfolio__item"
 						>
-							<img
-								src={node.frontmatter.featuredImage}
+							<Img
+								title={node.frontmatter.title}
 								alt=""
 								className="portfolio__img"
+								sizes={
+									pImgs[node.frontmatter.featuredImage].sizes
+								}
 							/>
 						</a>
 					))}
@@ -88,6 +104,23 @@ export const query = graphql`
 			childImageSharp {
 				sizes(maxWidth: 1280) {
 					...GatsbyImageSharpSizes
+				}
+			}
+		}
+		portfolioImages: allFile(
+			filter: {
+				relativeDirectory: { eq: "portfolio" }
+				extension: { regex: "/(gif|jpe?g|png|webp)$/i" }
+			}
+		) {
+			edges {
+				node {
+					base
+					childImageSharp {
+						sizes(maxWidth: 1280) {
+							...GatsbyImageSharpSizes
+						}
+					}
 				}
 			}
 		}
