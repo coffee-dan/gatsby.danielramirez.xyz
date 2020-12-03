@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import SEO from '../components/seo'
@@ -18,7 +19,12 @@ export default function Home({ data }) {
 				<p className="section__subtitle section__subtitle--intro">
 					Software Developer
 				</p>
-				<img src={'/img/me-1.jpg'} alt="" className="intro__img" />
+				<Img
+					title="Daniel Gerard Ramirez"
+					alt="Me"
+					className="intro__img"
+					sizes={data.file.childImageSharp.sizes}
+				/>
 			</section>
 
 			{/* About Me */}
@@ -75,6 +81,13 @@ export const query = graphql`
 						slug
 					}
 					excerpt
+				}
+			}
+		}
+		file(relativePath: { eq: "me-1.jpg" }) {
+			childImageSharp {
+				sizes(maxWidth: 1280) {
+					...GatsbyImageSharpSizes
 				}
 			}
 		}

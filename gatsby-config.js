@@ -24,6 +24,13 @@ module.exports = {
 			},
 		},
 		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `images`,
+				path: `${__dirname}/static/img/`,
+			},
+		},
+		{
 			resolve: `gatsby-plugin-google-fonts`,
 			options: {
 				fonts: [`source sans pro\:300,900`, `source code pro\:400,900`],
