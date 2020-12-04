@@ -36,7 +36,7 @@ export default function Home({ data }) {
 					title="Daniel Gerard Ramirez"
 					alt="Me"
 					className="intro__img"
-					sizes={data.file.childImageSharp.sizes}
+					fluid={data.file.childImageSharp.fluid}
 				/>
 			</section>
 
@@ -67,8 +67,8 @@ export default function Home({ data }) {
 								title={node.frontmatter.title}
 								alt=""
 								className="portfolio__img"
-								sizes={
-									pImgs[node.frontmatter.featuredImage].sizes
+								fluid={
+									pImgs[node.frontmatter.featuredImage].fluid
 								}
 							/>
 						</a>
@@ -80,6 +80,16 @@ export default function Home({ data }) {
 		</body>
 	)
 }
+
+export const fragQuery = graphql`
+	fragment Fluid on File {
+		childImageSharp {
+			fluid(maxWidth: 1280) {
+				...GatsbyImageSharpFluid
+			}
+		}
+	}
+`
 
 export const query = graphql`
 	query {
@@ -101,11 +111,7 @@ export const query = graphql`
 			}
 		}
 		file(relativePath: { eq: "me-1.jpg" }) {
-			childImageSharp {
-				sizes(maxWidth: 1280) {
-					...GatsbyImageSharpSizes
-				}
-			}
+			...Fluid
 		}
 		portfolioImages: allFile(
 			filter: {
@@ -116,11 +122,7 @@ export const query = graphql`
 			edges {
 				node {
 					base
-					childImageSharp {
-						sizes(maxWidth: 1280) {
-							...GatsbyImageSharpSizes
-						}
-					}
+					...Fluid
 				}
 			}
 		}

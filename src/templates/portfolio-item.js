@@ -30,13 +30,8 @@ export default function BlogPost({ data }) {
 					title={post.frontmatter.title}
 					alt="Portfolio featured image"
 					className="intro__img"
-					sizes={image.childImageSharp.sizes}
+					fluid={image.childImageSharp.fluid}
 				/>
-				{/* <img
-					src={post.frontmatter.featuredImage}
-					alt=""
-					className="intro__img"
-				/> */}
 			</section>
 
 			<div className="portfolio-item-individual">
@@ -63,8 +58,8 @@ export const query = graphql`
 			extension: { regex: "/(gif|jpe?g|png|webp)$/i" }
 		) {
 			childImageSharp {
-				sizes(maxWidth: 1280) {
-					...GatsbyImageSharpSizes
+				fluid(maxWidth: 1280) {
+					...GatsbyImageSharpFluid
 				}
 			}
 		}
