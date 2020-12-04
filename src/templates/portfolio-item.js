@@ -58,7 +58,10 @@ export const query = graphql`
 				featuredImage
 			}
 		}
-		portfolioImage: file(relativePath: { regex: $slug }) {
+		portfolioImage: file(
+			relativePath: { regex: $slug }
+			extension: { regex: "/(gif|jpe?g|png|webp)$/i" }
+		) {
 			childImageSharp {
 				sizes(maxWidth: 1280) {
 					...GatsbyImageSharpSizes
