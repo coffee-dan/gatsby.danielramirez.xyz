@@ -2,7 +2,7 @@
 title: "Netflix Zero"
 subtitle: "React.js Web App"
 date: "2020-10-16"
-featuredImage: "netflix-zero.png"
+featuredImage: "netflix-zero.jpg"
 ---
 
 Clone of Netflix front end and minimal backend. Made with scaling in mind, leveraging compound-components design pattern to create a extensible and maintainable codebase. Final project for React.js course by Scrimba. 
