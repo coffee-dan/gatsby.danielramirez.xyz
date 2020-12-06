@@ -45,6 +45,7 @@ export default function BlogPost({ data }) {
 
 export const query = graphql`
 	query($slug: String!) {
+		# Load in portfolio writeup using slug Example: /netflix-zero/
 		portfolioWriteup: markdownRemark(fields: { slug: { eq: $slug } }) {
 			html
 			frontmatter {
@@ -53,6 +54,7 @@ export const query = graphql`
 				featuredImage
 			}
 		}
+		# Load in portfolio image using slug
 		portfolioImage: file(
 			relativePath: { regex: $slug }
 			extension: { regex: "/(gif|jpe?g|png|webp)$/i" }

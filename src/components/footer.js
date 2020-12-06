@@ -9,13 +9,18 @@ export default function Footer() {
 				<li className="social-list__item">
 					<a
 						className="social-list__link"
+						alt="Github"
 						href="https://github.com/coffee-dan"
 					>
 						<FontAwesomeIcon icon={faGithub} />
 					</a>
 				</li>
 				<li className="social-list__item">
-					<a className="social-list__link" href="404">
+					<a
+						className="social-list__link"
+						alt="LinkedIn"
+						href="https://www.linkedin.com/in/daniel-ramirez-b96b7b186/"
+					>
 						<FontAwesomeIcon icon={faLinkedin} />
 					</a>
 				</li>

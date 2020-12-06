@@ -20,7 +20,7 @@ export default function Home({ data }) {
 	)
 
 	return (
-		<body>
+		<>
 			<SEO title="Home" />
 			<Header />
 
@@ -36,7 +36,7 @@ export default function Home({ data }) {
 					title="Daniel Gerard Ramirez"
 					alt="Me"
 					className="intro__img"
-					fluid={data.file.childImageSharp.fluid}
+					fluid={data.mainImage.childImageSharp.fluid}
 				/>
 			</section>
 
@@ -77,10 +77,11 @@ export default function Home({ data }) {
 			</section>
 
 			<Footer />
-		</body>
+		</>
 	)
 }
 
+// Query fragment for generating fluid gatsby image data
 export const fragQuery = graphql`
 	fragment Fluid on File {
 		childImageSharp {
@@ -93,6 +94,7 @@ export const fragQuery = graphql`
 
 export const query = graphql`
 	query {
+		# Retrieve markdown portfolio writeups from pages/
 		allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
 			totalCount
 			edges {
@@ -110,9 +112,11 @@ export const query = graphql`
 				}
 			}
 		}
-		file(relativePath: { eq: "me-1.jpg" }) {
+		# Main image; picture of daniel ramirez
+		mainImage: file(relativePath: { eq: "me-1.jpg" }) {
 			...Fluid
 		}
+		# Portfolio images; for the portfolio gallery
 		portfolioImages: allFile(
 			filter: {
 				relativeDirectory: { eq: "portfolio" }
