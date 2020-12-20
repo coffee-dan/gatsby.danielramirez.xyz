@@ -7,9 +7,11 @@ import Footer from '../components/footer'
 import SEO from '../components/seo'
 
 export default function Home({ data }) {
+	// Destructure out main data objects
+	const { mainImage, cv, portfolioImages } = data
 	// Grab array of portfolio images to transform into
 	// dictionary that is referred to when creating portfolio display section
-	const portfolioImagesArray = data.portfolioImages.edges
+	const portfolioImagesArray = portfolioImages.edges
 	let pImgs = portfolioImagesArray.reduce(
 		(a, { node }) => ({
 			...a,
@@ -36,7 +38,7 @@ export default function Home({ data }) {
 					title="Daniel Gerard Ramirez"
 					alt="Me"
 					className="intro__img"
-					fluid={data.mainImage.childImageSharp.fluid}
+					fluid={mainImage.childImageSharp.fluid}
 				/>
 			</section>
 
@@ -44,7 +46,7 @@ export default function Home({ data }) {
 			<section className="about-me" id="about">
 				<div className="about-me__body">
 					<p>Education - Bachelor of Computer Science</p>
-					<a href="github.com/coffee-dan" className="about-me__cv">
+					<a href={cv.publicURL} className="about-me__cv">
 						CV
 					</a>
 				</div>
@@ -115,6 +117,9 @@ export const query = graphql`
 		# Main image; picture of daniel ramirez
 		mainImage: file(relativePath: { eq: "me-1.jpg" }) {
 			...Fluid
+		}
+		cv: file(relativePath: { eq: "Daniel_Gerard_Ramirez_CV.pdf" }) {
+			publicURL
 		}
 		# Portfolio images; for the portfolio gallery
 		portfolioImages: allFile(
