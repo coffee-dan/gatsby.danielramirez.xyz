@@ -1,10 +1,17 @@
 import React from 'react'
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import {
+	faGithub,
+	faLinkedin,
+	faHackerrank,
+} from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Footer() {
 	return (
 		<div className="footer">
+			<a href="mailto:danramirezdev@gmail.com" class="footer__link">
+				danramirezdev@gmail.com
+			</a>
 			<ul className="social-list">
 				<li className="social-list__item">
 					<a
@@ -19,9 +26,18 @@ export default function Footer() {
 					<a
 						className="social-list__link"
 						alt="LinkedIn"
-						href="https://www.linkedin.com/in/daniel-ramirez-b96b7b186/"
+						href="https://www.linkedin.com/in/danramirezdev/"
 					>
 						<FontAwesomeIcon icon={faLinkedin} />
+					</a>
+				</li>
+				<li className="social-list__item">
+					<a
+						className="social-list__link"
+						alt="HackerRank"
+						href="https://www.hackerrank.com/coffee_dan"
+					>
+						<FontAwesomeIcon icon={faHackerrank} />
 					</a>
 				</li>
 			</ul>

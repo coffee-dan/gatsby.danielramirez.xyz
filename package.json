@@ -2,7 +2,7 @@
   "name": "danielramirez.xyz",
   "private": true,
   "description": "Daniel Ramirez : The Website",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "0BSD",
   "scripts": {
     "build": "gatsby clean && gatsby build",
